@@ -78,7 +78,7 @@ function handleBlockCollision() {
     && ball.top <= blockBottom
     && b.isHit == false
     ) {
-      score += 10;
+      score += 1;
       console.log(score);
       b.isHit = true
       b.style.backgroundColor = '#2A1E5C';
