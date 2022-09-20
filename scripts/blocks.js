@@ -13,6 +13,6 @@ function createBlock() {
   blocks.push(block);
 }
 
-for(let i=0;i < 70;i++){
+for(let i=0;i < 69;i++){
   createBlock();
 }
