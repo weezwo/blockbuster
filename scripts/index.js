@@ -1,3 +1,4 @@
+let score = 0;
 let mouseVelX;
 const game = document.getElementById('game');
 const paddle = document.createElement('div');
@@ -30,6 +31,7 @@ function moveBall() {
 }
 
 function checkBallCollision() {
+  handleBlockCollision();
   if(isWallSideColliding()) {
     ball.xVel = -ball.xVel;
   }
@@ -47,7 +49,7 @@ function isWallSideColliding() {
 }
 
 function isWallBottomColliding() {
-  return (ball.top - 15 >= game.clientHeight);
+  return (ball.top + 15 >= game.clientHeight);
 }
 
 function isPaddleColliding() {
@@ -56,10 +58,34 @@ function isPaddleColliding() {
   const paddleTop = paddle.getBoundingClientRect().top;
   const paddleBottom = paddle.getBoundingClientRect().bottom;
 
-  return (ball.left > paddleLeft 
-    && ball.left + 15 < paddleRight 
-    && (ball.top + 40) >= paddleTop 
-    && ball.top + 40 <= paddleBottom)
+  return (ball.left + 15 > paddleLeft 
+    && ball.left < paddleRight 
+    && (ball.top + 20) >= paddleTop 
+    && ball.top <= paddleBottom)
+}
+
+function handleBlockCollision() {
+  blocks.forEach(b => {
+    
+  const blockLeft = b.getBoundingClientRect().left;
+  const blockRight = b.getBoundingClientRect().right;
+  const blockTop = b.getBoundingClientRect().top;
+  const blockBottom = b.getBoundingClientRect().bottom;
+  
+    if (ball.left + 15 > blockLeft 
+    && ball.left < blockRight 
+    && (ball.top + 20) >= blockTop 
+    && ball.top <= blockBottom
+    && b.isHit == false
+    ) {
+      score += 10;
+      console.log(score);
+      b.isHit = true
+      b.style.backgroundColor = '#2A1E5C';
+      ball.yVel = -ball.yVel + 0.25;
+    }
+    
+  });
 }
 
 function decayBallVelocity() {
