@@ -6,7 +6,7 @@ const ball = document.createElement('div');
 const scoreDisp = document.createElement('div');
 scoreDisp.innerHTML = score;
 
-ball.xVel = 5;
+ball.xVel = randomizeXVel();
 ball.yVel = 10;
 ball.left = window.innerWidth / 2; 
 ball.top = window.innerHeight / 2;
@@ -19,6 +19,12 @@ game.append(ball);
 game.append(scoreDisp);
 ball.style.left = ball.left + 'px';
 ball.style.top = ball.top + 'px';
+
+function randomizeXVel() {
+const sign = Math.floor(Math.random() * 2);
+const value = Math.floor(Math.random() * 6);
+return sign == 1 ? value : -value;
+}
 
 function addPaddleControl() {
   addEventListener('mousemove', (event) => {
