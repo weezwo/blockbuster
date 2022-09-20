@@ -53,7 +53,8 @@ function handleBlockCollision() {
       if(ball.left + 15 ==  blockLeft || ball.left == blockRight) {
         ball.xVel = -ball.xVel;
       }
-        ball.yVel = -ball.yVel + 0.25;
+      ball.yVel = -ball.yVel + 0.25;
+      if(allBlocksHit()) resetBlocks; 
     }
     
   });

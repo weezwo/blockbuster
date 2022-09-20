@@ -20,3 +20,6 @@ function resetBlocks() {
   })
 }
 
+function allBlocksHit() {
+  return !blocks.some(b => b.isHit == false);
+}
