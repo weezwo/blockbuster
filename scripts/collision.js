@@ -52,9 +52,8 @@ function handleBlockCollision() {
       b.style.backgroundColor = '#2A1E5C';
       if(ball.left + 15 ==  blockLeft || ball.left == blockRight) {
         ball.xVel = -ball.xVel;
-      } else {
-        ball.yVel = -ball.yVel + 0.25;
       }
+        ball.yVel = -ball.yVel + 0.25;
     }
     
   });
