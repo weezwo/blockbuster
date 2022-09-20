@@ -13,6 +13,13 @@ function createBlock() {
   blocks.push(block);
 }
 
+function resetBlocks() {
+  blocks.forEach(b =>{
+    b.isHit = false;
+    b.style.backgroundColor = '#FCFFFD';
+  })
+}
+
 for(let i=0;i < 69;i++){
   createBlock();
 }

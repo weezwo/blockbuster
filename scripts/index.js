@@ -1,3 +1,7 @@
 initializeGame();
 addPaddleControl();
-const ballMover = setInterval(moveBall, 36);
+let ballMover = kickoffBall();
+
+addEventListener('keydown', e => {
+  if(e.code == "Space") resetGame();
+});

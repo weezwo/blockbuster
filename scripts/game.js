@@ -5,10 +5,18 @@ function updateScore() {
 }
 
 function endGame() {
-  clearInterval(ballMover);
-  let gameOver = document.createElement('div');
-  gameOver.id = 'game-over';
+  ball.yVel = 0;
+  ball.xVel = 0;
   gameOver.innerHTML = 'U SUK';
   game.append(gameOver);
 }
 
+function resetGame() {
+  ball.yVel = 0;
+  ball.xVel = 0;
+  gameOver.remove();
+  resetBlocks();
+  setBall();
+  score = -1;
+  updateScore();
+}
