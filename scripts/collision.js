@@ -45,11 +45,10 @@ function handleBlockCollision() {
     && ball.left <= blockRight 
     && (ball.top + 20) >= blockTop 
     && ball.top <= blockBottom
-    && b.isHit == false
+    && b.dataset.isHit == false
     ) {
       updateScore();
-      b.isHit = true
-      b.style.backgroundColor = '#2A1E5C';
+      b.dataset.isHit = 1
       if(ball.left + 15 ==  blockLeft || ball.left == blockRight) {
         ball.xVel = -ball.xVel;
       }
