@@ -1,4 +1,4 @@
-
+function initializeGame() {
 let score = 0;
 let mouseVelX;
 const game = document.getElementById('game');
@@ -21,6 +21,7 @@ game.append(ball);
 game.append(scoreDisp);
 ball.style.left = ball.left + 'px';
 ball.style.top = ball.top + 'px';
+}
 
 function randomizeXVel() {
 const sign = Math.floor(Math.random() * 2);
