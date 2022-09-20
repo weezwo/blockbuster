@@ -17,6 +17,10 @@ function initializeGame() {
   game.append(ball);
   game.append(scoreDisp);
   setBall();
+
+  for(let i=0;i < 69;i++){
+    createBlock();
+  }
 }
 
 function setBall() {

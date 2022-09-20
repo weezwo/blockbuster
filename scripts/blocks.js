@@ -20,6 +20,3 @@ function resetBlocks() {
   })
 }
 
-for(let i=0;i < 69;i++){
-  createBlock();
-}
