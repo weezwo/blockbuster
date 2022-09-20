@@ -32,13 +32,16 @@ html, body {
 }
 
 #brick-lair {
-width: 100%;
+width: 98%;
 max-height: 25vh;
 display: grid;
 grid-template-columns: repeat(10, 1fr);
 box-sizing: border-box;
 column-gap: 3px;
 row-gap: 3px;
+justify-content: center;
+align-content: center;
+margin: auto;
 }
 
 .block {
