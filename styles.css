@@ -48,3 +48,21 @@ row-gap: 3px;
   background-color: #FCFFFD;
   border-radius: 3px;
 }
+
+#score {
+  font-size: 300%;
+  position: absolute;
+  bottom: 2vh;
+  right: 2vw;
+  font-family: monospace;
+  color: #FCFFFD;
+}
+
+#game-over {
+  color: #FCFFFD;
+  font-size: 400%;
+  position: relative;
+  top: 45vh;
+  text-align: center;
+  font-family: monospace;
+}

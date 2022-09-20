@@ -3,6 +3,9 @@ let mouseVelX;
 const game = document.getElementById('game');
 const paddle = document.createElement('div');
 const ball = document.createElement('div');
+const scoreDisp = document.createElement('div');
+scoreDisp.innerHTML = score;
+
 ball.xVel = 5;
 ball.yVel = 10;
 ball.left = window.innerWidth / 2; 
@@ -10,8 +13,10 @@ ball.top = window.innerHeight / 2;
 
 paddle.id = 'paddle';
 ball.id = 'ball';
+scoreDisp.id = 'score';
 game.append(paddle);
 game.append(ball);
+game.append(scoreDisp);
 ball.style.left = ball.left + 'px';
 ball.style.top = ball.top + 'px';
 
@@ -72,17 +77,20 @@ function handleBlockCollision() {
   const blockTop = b.getBoundingClientRect().top;
   const blockBottom = b.getBoundingClientRect().bottom;
   
-    if (ball.left + 15 > blockLeft 
-    && ball.left < blockRight 
+    if (ball.left + 15 >= blockLeft 
+    && ball.left <= blockRight 
     && (ball.top + 20) >= blockTop 
     && ball.top <= blockBottom
     && b.isHit == false
     ) {
-      score += 1;
-      console.log(score);
+      updateScore();
       b.isHit = true
       b.style.backgroundColor = '#2A1E5C';
-      ball.yVel = -ball.yVel + 0.25;
+      if(ball.left + 15 ==  blockLeft || ball.left == blockRight) {
+        ball.xVel = -ball.xVel;
+      } else {
+        ball.yVel = -ball.yVel + 0.25;
+      }
     }
     
   });
@@ -93,9 +101,17 @@ function decayBallVelocity() {
   ball.yVel = ball.yVel * .9;
 }
 
+function updateScore() {
+  score++;
+  scoreDisp.innerHTML = score;
+}
+
 function endGame() {
   clearInterval(ballMover);
-  console.log('U SUK');
+  let gameOver = document.createElement('div');
+  gameOver.id = 'game-over';
+  gameOver.innerHTML = 'U SUK';
+  game.append(gameOver);
 }
 
 addPaddleControl();
