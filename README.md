@@ -1,6 +1,6 @@
 # Blockbuster
 
-A simple implementation of the classic brickbreaker game in vanilla js with rudimmentary physics.
+A simple implementation of the classic brickbreaker game in vanilla js with rudimentary physics.
 
 ## Notable Features
 
